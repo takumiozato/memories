@@ -62,7 +62,7 @@ var photoGrid = {
 	template: `
 		<transition name="photo-fade">
 			<div id="photo-grid" v-show="isShow">
-				<div class="photo-item"><a href="detail.html"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></a></div>
+				<div class="photo-item"><router-link to="/detail"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></router-link></div>
 				<div class="photo-item"><img class="z-depth-2" src="images/photo/2.jpg" alt="イメージ画像"></div>
 				<div class="photo-item"><img class="z-depth-2" src="images/photo/3.jpg" alt="イメージ画像"></div>
 				<div class="photo-item"><img class="z-depth-2" src="images/photo/4.jpg" alt="イメージ画像"></div>
@@ -104,9 +104,9 @@ var iconWrapper = {
 	template: `
 		<transition name="icon-fade">
 			<div class="icon-wrapper" v-show="isShow">
-				<a href="index.html" class="black-text">
+				<router-link to="/top" :class="'black-text'">
 					<i class="mini material-icons">arrow_back</i>
-				</a>
+				</router-link>
 			</div>
 		</transition>
 	`,
@@ -176,14 +176,41 @@ var detailPage = {
 	}
 }
 
+var router = new VueRouter({
+	routes: [
+		{
+			path: '/top',
+			component: indexPage
+		},
+		{
+			path: '/detail',
+			component: detailPage
+		}
+	]
+})
+
 // Vueインスタンス生成
 var vm = new Vue({
 	el: "#app",
-	components: {
-		// 'title-area': titleArea,
-		// 'user-chip': userChip,
-		// 'photo-grid': photoGrid,
-		'index-page': indexPage,
-		'detail-page': detailPage,
+	router: router,
+	watch: {
+		// ルートが変更されたらこのメソッドを再び呼び出します
+		'$route': 'magicGridListen'
 	},
+	updated: function(){
+		this.magicGridListen();
+	},
+	methods: {
+		magicGridListen(){
+			if(document.getElementById("photo-grid")){
+				var magicGrid = new MagicGrid({
+					container: "#photo-grid",
+					items: 6,
+					gutter: 15,
+					animate: false,
+				});
+				magicGrid.listen();
+			}
+		}
+	}
 })
