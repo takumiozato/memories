@@ -18,7 +18,7 @@ window.onload = function () {
 	}
 };
 
-// Vue.js
+// トップページ
 var titleArea = {
 	template: `
 		<transition name="title-fade">
@@ -84,6 +84,22 @@ var photoGrid = {
 	}
 }
 
+var indexPage = {
+	template: `
+		<div>
+			<title-area></title-area>
+			<user-chip></user-chip>
+			<photo-grid></photo-grid>
+		</div>
+	`,
+	components: {
+		'title-area': titleArea,
+		'user-chip': userChip,
+		'photo-grid': photoGrid
+	}
+}
+
+// 詳細ページ
 var iconWrapper = {
 	template: `
 		<transition name="icon-fade">
@@ -141,14 +157,33 @@ var detailContent = {
 	}
 }
 
-var vm = new Vue({
-	el: "#app",
+var detailPage = {
+	template: `
+		<div>
+			<title-area></title-area>
+			<icon-wrapper></icon-wrapper>
+			<div class="row">
+				<detail-image></detail-image>
+				<detail-content></detail-content>
+			</div>
+		</div>
+	`,
 	components: {
 		'title-area': titleArea,
-		'user-chip': userChip,
-		'photo-grid': photoGrid,
 		'icon-wrapper': iconWrapper,
 		'detail-image': detailImage,
 		'detail-content': detailContent,
+	}
+}
+
+// Vueインスタンス生成
+var vm = new Vue({
+	el: "#app",
+	components: {
+		// 'title-area': titleArea,
+		// 'user-chip': userChip,
+		// 'photo-grid': photoGrid,
+		'index-page': indexPage,
+		'detail-page': detailPage,
 	},
 })
