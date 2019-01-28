@@ -9,3 +9,9 @@
 .photo-item img {
 	width: 100%;
 }
+
+@media ( max-width:375px ){
+	.photo-item {
+		width: 130px;
+	}
+}

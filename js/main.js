@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 let magicGrid = new MagicGrid({
 	container: "#photo-grid",
 	items: 6,
-	// maxColumns: 3,
-	animate: true,
+	gutter: 15,
+	animate: false,
 });
 magicGrid.listen();
