@@ -55,7 +55,7 @@
 	border-radius: 5px;
 }
 
-@media ( max-width:375px ){
+@media ( max-width:468px ){
 	.photo-item {
 		width: 45%;
 	}

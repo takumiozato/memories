@@ -12,29 +12,13 @@
 </head>
 <body>
 	<div id="app" class="container">
-		<div class="icon-wrapper">
-			<a href="index.html" class="black-text">
-				<i class="mini material-icons">arrow_back</i>
-			</a>
+		<title-area></title-area>
+		<icon-wrapper></icon-wrapper>
+		<div class="row">
+			<detail-image></detail-image>
+			<detail-content></detail-content>
 		</div>
-		<detail-image></detail-image>
-		<detail-content></detail-content>
 	</div>
-	<script type="text/x-template" id="detail-image">
-		<transition name="image-fade">
-			<div class="detail-image-wrapper" v-show="isShow">
-				<img src="images/photo/1.jpg" alt="イメージ画像" class="detail-image z-depth-2">
-			</div>
-		</transition>
-	</script>
-	<script type="text/x-template" id="detail-content">
-		<transition name="content-fade">
-			<div class="detail-content" v-show="isShow">
-				<h2 class="content-title">サンセットビーチ</h2>
-				<p>結婚式の開場前、空いた時間に立ち寄った、北谷のサンセットビーチ。この時、まだ4月なのに焼けるような暑さだった。北谷という土地は沖縄の中でも比較的外国人が多く、とくにこのサンセットビーチは、日光浴や、サイクリングをしている外国人を毎日見かける。リラックスした空気が流れる居心地の良いビーチ。</p>
-			</div>
-		</transition>
-	</script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/materialize.js"></script>
