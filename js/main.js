@@ -14,18 +14,46 @@ let magicGrid = new MagicGrid({
 magicGrid.listen();
 
 // Vue.js
+var titleArea = {
+	template: '#title-area',
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
+}
+
 var userChip = {
-	template: '#user-chip'
+	template: '#user-chip',
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
 }
 
 var photoGrid = {
-	template: '#photo-grid'
+	template: '#photo-grid',
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
 }
-
 
 var vm = new Vue({
 	el: "#app",
 	components: {
+		'title-area': titleArea,
 		'user-chip': userChip,
 		'photo-grid': photoGrid
 	}

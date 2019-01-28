@@ -10,29 +10,40 @@
 </head>
 <body>
 	<div id="app" class="container">
-		<!-- <h1 class="title">Memories</h1> -->
+		<title-area></title-area>
 		<user-chip></user-chip>
 		<photo-grid></photo-grid>
 	</div>
-	<script type="text/x-template" id="user-chip">
-		<div class="chip-wrapper">
-			<div class="chip z-depth-1">
-				<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
-				Ozato Takumi
+	<script type="text/x-template" id="title-area">
+		<transition name="title-fade">
+			<div class="title-area" v-show="isShow">
+				<h1 class="title">Memories</h1>
 			</div>
-		</div>
+		</transition>
+	</script>
+	<script type="text/x-template" id="user-chip">
+		<transition name="chip-fade">
+			<div class="chip-wrapper" v-show="isShow">
+				<div class="chip z-depth-1">
+					<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
+					Ozato Takumi
+				</div>
+			</div>
+		</transition>
 	</script>
 	<script type="text/x-template" id="photo-grid">
-		<div id="photo-grid">
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/2.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/3.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/4.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/5.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/6.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/7.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/8.jpg" alt="イメージ画像"></div>
-		</div>
+		<transition name="photo-fade">
+			<div id="photo-grid" v-show="isShow">
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/2.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/3.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/4.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/5.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/6.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/7.jpg" alt="イメージ画像"></div>
+				<div class="photo-item"><img class="z-depth-2" src="images/photo/8.jpg" alt="イメージ画像"></div>
+			</div>
+		</transition>
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
