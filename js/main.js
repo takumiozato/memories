@@ -86,12 +86,22 @@ var photoGrid = {
 
 var iconWrapper = {
 	template: `
-		<div class="icon-wrapper">
-			<a href="index.html" class="black-text">
-				<i class="mini material-icons">arrow_back</i>
-			</a>
-		</div>
-	`
+		<transition name="icon-fade">
+			<div class="icon-wrapper" v-show="isShow">
+				<a href="index.html" class="black-text">
+					<i class="mini material-icons">arrow_back</i>
+				</a>
+			</div>
+		</transition>
+	`,
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
 }
 
 var detailImage = {
