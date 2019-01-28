@@ -1,11 +1,16 @@
 .title {
 	color: #00796b;
+	font-family: 'Noto Serif', serif;
 	font-size: 3.5rem;
-	margin: 0;
+	margin: 15px 0 10px 0;
 }
 
 .chip-wrapper {
 	margin: 1rem 0;
+}
+
+.chip {
+	font-family: serif;
 }
 
 #photo-grid {
