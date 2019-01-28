@@ -5,13 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // MagicGrid
-let magicGrid = new MagicGrid({
-	container: "#photo-grid",
-	items: 6,
-	gutter: 15,
-	animate: false,
-});
-magicGrid.listen();
+if(document.getElementById("photo-grid")){
+	let magicGrid = new MagicGrid({
+		container: "#photo-grid",
+		items: 6,
+		gutter: 15,
+		animate: false,
+	});
+	magicGrid.listen();
+}
 
 // Vue.js
 var titleArea = {

@@ -31,6 +31,30 @@
 	transform: scale(1.03);
 }
 
+.icon-wrapper {
+	margin: 15px 0;
+}
+
+.detail-content {
+	font-family: 'Noto Serif JP', serif;
+}
+
+.content-title {
+	font-size: 2rem;
+	color: #00796b;
+	margin: 15px 0 0;
+}
+
+.detail-image-wrapper {
+	width: 100%;
+	padding: 5px;
+}
+
+.detail-image {
+	width: 100%;
+	border-radius: 5px;
+}
+
 .title-fade-enter-active {
 	transition: 1s ease;
 }
