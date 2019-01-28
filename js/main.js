@@ -52,11 +52,37 @@ var photoGrid = {
 	}
 }
 
+var detailImage = {
+	template: '#detail-image',
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
+}
+
+var detailContent = {
+	template: '#detail-content',
+	data: function(){
+		return {
+			isShow: false
+		}
+	},
+	mounted: function(){
+		this.isShow = true
+	}
+}
+
 var vm = new Vue({
 	el: "#app",
 	components: {
 		'title-area': titleArea,
 		'user-chip': userChip,
-		'photo-grid': photoGrid
+		'photo-grid': photoGrid,
+		'detail-image': detailImage,
+		'detail-content': detailContent,
 	}
 })

@@ -1,0 +1,27 @@
+.image-fade-enter-active {
+	transition: 1s ease;
+}
+
+.image-fade-enter {
+	transform: translateY(15px);
+	opacity: 0;
+}
+
+.image-fade-enter-to {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.content-fade-enter-active {
+	transition: 1s ease .5s;
+}
+
+.content-fade-enter {
+	transform: translateY(15px);
+	opacity: 0;
+}
+
+.content-fade-enter-to {
+	transform: translateY(0px);
+	opacity: 1;
+}
