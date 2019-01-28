@@ -9,27 +9,32 @@
 	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 </head>
 <body>
-	<div class="container">
-		<h1 class="title">Memories</h1>
-		<div class="chip">
-			<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
-			Ozato Takumi
+	<div id="app" class="container">
+		<!-- <h1 class="title">Memories</h1> -->
+		<user-chip></user-chip>
+		<photo-grid></photo-grid>
+	</div>
+	<script type="text/x-template" id="user-chip">
+		<div class="chip-wrapper">
+			<div class="chip z-depth-1">
+				<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
+				Ozato Takumi
+			</div>
 		</div>
+	</script>
+	<script type="text/x-template" id="photo-grid">
 		<div id="photo-grid">
-<!-- 			<div class="photo-item"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></div>
+			<div class="photo-item"><img class="z-depth-2" src="images/photo/1.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/2.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/3.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/4.jpg" alt="イメージ画像"></div> -->
+			<div class="photo-item"><img class="z-depth-2" src="images/photo/4.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/5.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/6.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/7.jpg" alt="イメージ画像"></div>
 			<div class="photo-item"><img class="z-depth-2" src="images/photo/8.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/9.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/10.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/11.jpg" alt="イメージ画像"></div>
-			<div class="photo-item"><img class="z-depth-2" src="images/photo/12.jpg" alt="イメージ画像"></div>
 		</div>
-	</div>
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/materialize.js"></script>

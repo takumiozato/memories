@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var instances = M.Chips.init(elems);
 });
 
-// MagicGridの定義
+// MagicGrid
 let magicGrid = new MagicGrid({
 	container: "#photo-grid",
 	items: 6,
@@ -12,3 +12,21 @@ let magicGrid = new MagicGrid({
 	animate: false,
 });
 magicGrid.listen();
+
+// Vue.js
+var userChip = {
+	template: '#user-chip'
+}
+
+var photoGrid = {
+	template: '#photo-grid'
+}
+
+
+var vm = new Vue({
+	el: "#app",
+	components: {
+		'user-chip': userChip,
+		'photo-grid': photoGrid
+	}
+})

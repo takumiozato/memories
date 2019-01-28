@@ -5949,14 +5949,14 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .chip {
   display: inline-block;
-  height: 32px;
+  height: 42px;
   font-size: 13px;
   font-weight: 500;
-  color: #00796b;
-  line-height: 32px;
+  color: #fff;
+  line-height: 42px;
   padding: 0 12px;
-  border-radius: 16px;
-  /*background-color: #e4e4e4;*/
+  border-radius: 25px;
+  background-color: #00796b;
   margin-bottom: 5px;
   margin-right: 5px;
 }
@@ -5970,8 +5970,8 @@ body.keyboard-focused .dropdown-content li:focus {
 .chip > img {
   float: left;
   margin: 0 8px 0 -12px;
-  height: 32px;
-  width: 32px;
+  height: 42px;
+  width: 42px;
   border-radius: 50%;
 }
 

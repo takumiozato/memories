@@ -1,17 +1,27 @@
-.title {
-	color: #00796b;
+.chip-wrapper {
+	margin: 1rem 0;
+}
+
+#photo-grid {
+	margin: 20px 0 0 0;
 }
 
 .photo-item {
-	width: 300px;
+	width: 30%;
+	cursor: pointer;
 }
 
 .photo-item img {
 	width: 100%;
+	transition: .5s ease;
+}
+
+.photo-item img:hover {
+	transform: scale(1.03);
 }
 
 @media ( max-width:375px ){
 	.photo-item {
-		width: 130px;
+		width: 45%;
 	}
 }
