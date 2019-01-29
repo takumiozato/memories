@@ -84,14 +84,16 @@
 	opacity: 1;
 }
 
-/*.route-enter-active {
-	transition: 3s ease;
+.image-scale-enter-active {
+	transition: .3s ease;
 }
 
-.route-enter {
-	transform: scale(1.1);
+.image-scale-enter {
+	transform: translate(-80px, -20px) scale(0);
+	opacity: 0;
 }
 
-.route-enter-to {
-	transform: scale(1);
+.image-scale-enter-to {
+	transform: translate(0px, 0px) scale(1);
+	opacity: 1;
 }

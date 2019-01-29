@@ -270,7 +270,9 @@ var userPage = {
 				<div class="col s12 m4">
 					<div class="row">
 						<div class="col s6 m12">
-							<img src="images/user_icon.jpg" alt="" class="user-image">
+							<transition name="image-scale">
+								<img src="images/user_icon.jpg" alt="ユーザー画像" class="user-image" v-show="isShow">
+							</transition>
 						</div>
 						<div class="col s6 m12">
 							<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
@@ -298,6 +300,7 @@ var userPage = {
 	`,
 	data: function(){
 		return {
+			isShow: false,
 			isFollow: false,
 			photoData: photoData
 		}
@@ -327,6 +330,9 @@ var userPage = {
 		'icon-wrapper': iconWrapper,
 		'user-chip': userChip,
 		'photo-grid': photoGrid,
+	},
+	mounted: function(){
+		this.isShow = true
 	}
 }
 
