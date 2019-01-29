@@ -156,11 +156,9 @@ var photoGrid = {
 
 var indexPage = {
 	template: `
-		<div>
+		<div class="container">
 			<title-area></title-area>
-			<div class="container">
-				<photo-grid :data="photoData"></photo-grid>
-			</div>
+			<photo-grid :data="photoData"></photo-grid>
 		</div>
 	`,
 	data: function(){
@@ -237,14 +235,12 @@ var detailContent = {
 
 var detailPage = {
 	template: `
-		<div>
+		<div class="container">
 			<icon-wrapper></icon-wrapper>
-			<div class="container">
-				<user-chip></user-chip>
-				<div class="row">
-					<detail-image :data="photoData[paramsId]"></detail-image>
-					<detail-content :data="photoData[paramsId]"></detail-content>
-				</div>
+			<user-chip></user-chip>
+			<div class="row">
+				<detail-image :data="photoData[paramsId]"></detail-image>
+				<detail-content :data="photoData[paramsId]"></detail-content>
 			</div>
 		</div>
 	`,
@@ -268,16 +264,69 @@ var detailPage = {
 
 var userPage = {
 	template: `
-		<div>
+		<div class="container">
 			<icon-wrapper></icon-wrapper>
-			<div class="container">
-				<user-chip></user-chip>
+			<div class="profile-wrapper row">
+				<div class="col s12 m4">
+					<div class="row">
+						<div class="col s6 m12">
+							<img src="images/user_icon.jpg" alt="" class="user-image">
+						</div>
+						<div class="col s6 m12">
+							<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
+							<p class="fav-btn-wrapper">
+								<a class="waves-effect waves-light btn-small" :class="btnColor" @click="doFollow">{{ followText }}</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m8">
+					<div class="row">
+						<div class="col s6">
+							<small>Follower</small>
+							<p>5</p>
+						</div>
+						<div class="col s6">
+							<small>Posts</small>
+							<p>8</p>
+						</div>
+					</div>
+				</div>
 			</div>
+			<photo-grid :data="photoData"></photo-grid>
 		</div>
 	`,
+	data: function(){
+		return {
+			isFollow: false,
+			photoData: photoData
+		}
+	},
+	methods: {
+		doFollow: function(){
+			this.isFollow = !this.isFollow
+		}
+	},
+	computed: {
+		followText: function(){
+			if (this.isFollow) {
+				return 'unfollow'
+			}else{
+				return 'follow'
+			}
+		},
+		btnColor: function(){
+			if (this.isFollow) {
+				return 'blue-grey darken-1'
+			}else{
+				return 'teal darken-3'
+			}
+		}
+	},
 	components: {
 		'icon-wrapper': iconWrapper,
 		'user-chip': userChip,
+		'photo-grid': photoGrid,
 	}
 }
 
