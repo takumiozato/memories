@@ -18,6 +18,19 @@ window.onload = function () {
 	}
 };
 
+var photoData = [
+	{
+		id: 0,
+		title: 'サンセットビーチ',
+		content: '結婚式の開場前、空いた時間に立ち寄った、北谷のサンセットビーチ。この時、まだ4月なのに焼けるような暑さだった。北谷という土地は沖縄の中でも比較的外国人が多く、とくにこのサンセットビーチは、日光浴や、サイクリングをしている外国人を毎日見かける。リラックスした空気が流れる居心地の良いビーチ。'
+	},
+	{
+		id: 1,
+		title: '古宇利ビーチ',
+		content: '沖縄県北部にある、古宇利島のビーチ。沖縄本島から車で行けるビーチの中で個人的に一番綺麗。絵具を流し込んだかのような信じられないほどのエメラルドグリーンに息をのむ。'
+	},
+]
+
 // トップページ
 var titleArea = {
 	template: `
@@ -121,10 +134,11 @@ var iconWrapper = {
 }
 
 var detailImage = {
+	props: ['id'],
 	template: `
 		<transition name="image-fade">
 			<div class="detail-image-wrapper col m6 s12" v-show="isShow">
-				<img src="images/photo/1.jpg" alt="イメージ画像" class="detail-image z-depth-2">
+				<img :src="'images/photo/' + id + '.jpg'" alt="イメージ画像" class="detail-image z-depth-2">
 			</div>
 		</transition>
 	`,
@@ -139,17 +153,18 @@ var detailImage = {
 }
 
 var detailContent = {
+	props: ['data'],
 	template: `
 		<transition name="content-fade">
 			<div class="detail-content col m6 s12" v-show="isShow">
-				<h2 class="content-title">サンセットビーチ</h2>
-				<p>結婚式の開場前、空いた時間に立ち寄った、北谷のサンセットビーチ。この時、まだ4月なのに焼けるような暑さだった。北谷という土地は沖縄の中でも比較的外国人が多く、とくにこのサンセットビーチは、日光浴や、サイクリングをしている外国人を毎日見かける。リラックスした空気が流れる居心地の良いビーチ。</p>
+				<h2 class="content-title">{{ data.title }}</h2>
+				<p>{{ data.content }}</p>
 			</div>
 		</transition>
 	`,
 	data: function(){
 		return {
-			isShow: false
+			isShow: false,
 		}
 	},
 	mounted: function(){
@@ -163,11 +178,21 @@ var detailPage = {
 			<title-area></title-area>
 			<icon-wrapper></icon-wrapper>
 			<div class="row">
-				<detail-image></detail-image>
-				<detail-content></detail-content>
+				<detail-image :id="paramsId"></detail-image>
+				<detail-content :data="photoData[paramsId]"></detail-content>
 			</div>
 		</div>
 	`,
+	data: function(){
+		return {
+			photoData: photoData
+		}
+	},
+	computed: {
+		paramsId: function(){
+			return this.$route.params.id
+		}
+	},
 	components: {
 		'title-area': titleArea,
 		'icon-wrapper': iconWrapper,
@@ -183,7 +208,7 @@ var router = new VueRouter({
 			component: indexPage
 		},
 		{
-			path: '/detail',
+			path: '/detail/:id',
 			component: detailPage
 		}
 	]
