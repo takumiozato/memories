@@ -73,7 +73,7 @@ var photoData = [
 var titleArea = {
 	template: `
 		<transition name="title-fade">
-			<div class="title-area" v-show="isShow">
+			<div class="icon-wrapper" v-show="isShow">
 				<h1 class="title">Memories</h1>
 			</div>
 		</transition>
@@ -96,12 +96,32 @@ var userChip = {
 					<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
 					Ozato Takumi
 				</div>
+				<p class="fav-icon">
+					<transition name="chip-fade">
+						<i class="mini material-icons red-text text-accent-3" @click="doFav">{{ isFavIcon }}</i>
+					</transition>
+				</p>
 			</div>
 		</transition>
 	`,
 	data: function(){
 		return {
-			isShow: false
+			isShow: false,
+			isFav: false
+		}
+	},
+	computed: {
+		isFavIcon: function(){
+			if (this.isFav) {
+				return 'favorite'
+			}else{
+				return 'favorite_border'
+			}
+		}
+	},
+	methods: {
+		doFav: function(){
+			this.isFav = !this.isFav
 		}
 	},
 	mounted: function(){
