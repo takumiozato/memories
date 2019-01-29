@@ -136,8 +136,9 @@ var indexPage = {
 	template: `
 		<div>
 			<title-area></title-area>
-			<user-chip></user-chip>
-			<photo-grid :data="photoData"></photo-grid>
+			<div class="container">
+				<photo-grid :data="photoData"></photo-grid>
+			</div>
 		</div>
 	`,
 	data: function(){
@@ -215,11 +216,13 @@ var detailContent = {
 var detailPage = {
 	template: `
 		<div>
-			<title-area></title-area>
 			<icon-wrapper></icon-wrapper>
-			<div class="row">
-				<detail-image :data="photoData[paramsId]"></detail-image>
-				<detail-content :data="photoData[paramsId]"></detail-content>
+			<div class="container">
+				<user-chip></user-chip>
+				<div class="row">
+					<detail-image :data="photoData[paramsId]"></detail-image>
+					<detail-content :data="photoData[paramsId]"></detail-content>
+				</div>
 			</div>
 		</div>
 	`,
@@ -234,9 +237,9 @@ var detailPage = {
 		}
 	},
 	components: {
-		'title-area': titleArea,
 		'icon-wrapper': iconWrapper,
 		'detail-image': detailImage,
+		'user-chip': userChip,
 		'detail-content': detailContent,
 	}
 }
@@ -260,6 +263,10 @@ var vm = new Vue({
 	router: router,
 	updated: function(){
 		this.magicGridListen();
+	},
+	components: {
+		'user-chip': userChip,
+		'title-area': titleArea,
 	},
 	methods: {
 		magicGridListen(){

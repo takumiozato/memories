@@ -1,12 +1,18 @@
+.title-area {
+	padding: 5px 10px;
+	margin: 0 0 10px 0;
+	height: 40px;
+}
+
 .title {
 	color: #00796b;
 	font-family: 'Noto Serif', serif;
-	font-size: 3.5rem;
-	margin: 15px 0 10px 0;
+	font-size: 2rem;
+	margin: 0;
 }
 
 .chip-wrapper {
-	margin: 1rem 0;
+	padding: 10px 0;
 }
 
 .chip {
@@ -14,7 +20,7 @@
 }
 
 #photo-grid {
-	margin: 20px 0 0 0;
+	padding: 10px 0 0 0;
 }
 
 .photo-item {
@@ -32,7 +38,11 @@
 }
 
 .icon-wrapper {
-	margin: 15px 0;
+	padding: 5px 10px;
+	margin: 0 0 10px 0;
+	height: 40px;
+	display: flex;
+	align-items: center;
 }
 
 .detail-content {
@@ -40,7 +50,7 @@
 }
 
 .content-title {
-	font-size: 2rem;
+	font-size: 1.3rem;
 	color: #00796b;
 	margin: 15px 0 0;
 }
