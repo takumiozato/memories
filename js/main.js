@@ -92,10 +92,12 @@ var userChip = {
 	template: `
 		<transition name="chip-fade">
 			<div class="chip-wrapper" v-show="isShow">
-				<div class="chip z-depth-1">
-					<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
-					Ozato Takumi
-				</div>
+				<router-link to="/user/1">
+					<div class="chip z-depth-1">
+						<img src="images/user_icon.jpg" alt="ユーザーアイコン画像">
+						Ozato Takumi
+					</div>
+				</router-link>
 				<p class="fav-icon">
 					<transition name="chip-fade">
 						<i class="mini material-icons red-text text-accent-3" @click="doFav">{{ isFavIcon }}</i>
@@ -264,6 +266,21 @@ var detailPage = {
 	}
 }
 
+var userPage = {
+	template: `
+		<div>
+			<icon-wrapper></icon-wrapper>
+			<div class="container">
+				<user-chip></user-chip>
+			</div>
+		</div>
+	`,
+	components: {
+		'icon-wrapper': iconWrapper,
+		'user-chip': userChip,
+	}
+}
+
 var router = new VueRouter({
 	routes: [
 		{
@@ -273,6 +290,10 @@ var router = new VueRouter({
 		{
 			path: '/detail/:id',
 			component: detailPage
+		},
+		{
+			path: '/user/:id',
+			component: userPage
 		}
 	]
 })
@@ -285,7 +306,6 @@ var vm = new Vue({
 		this.magicGridListen();
 	},
 	components: {
-		'user-chip': userChip,
 		'title-area': titleArea,
 	},
 	methods: {
