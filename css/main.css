@@ -14,7 +14,7 @@
 }
 
 .chip-wrapper {
-	padding: 10px 0 20px 0;
+	padding: 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -50,8 +50,7 @@
 }
 
 .icon-wrapper {
-	padding: 15px 0 0 0;
-	margin: 0 0 10px 0;
+	padding: 15px 10px;
 	height: 50px;
 	display: flex;
 	align-items: center;
@@ -61,10 +60,24 @@
 	font-family: 'Noto Serif JP', serif;
 }
 
+.detail-content > p {
+	margin: 5px 0 0;
+}
+
+.fav-btn-wrapper {
+	margin: 5px 0 0 0;
+}
+
 .content-title {
 	font-size: 1.3rem;
 	color: #00796b;
-	margin: 15px 0 0;
+	margin: 6px 0 0;
+}
+
+.fav-btn-wrapper > span {
+	margin: 0 5px 0 0;
+	display: inline-flex;
+	align-items: center;
 }
 
 .detail-image-wrapper {
@@ -93,7 +106,7 @@
 	font-family: serif;
 }
 
-.fav-btn-wrapper {
+.follow-btn-wrapper {
 	text-align: center;
 	margin: 0;
 }

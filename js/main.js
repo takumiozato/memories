@@ -98,32 +98,13 @@ var userChip = {
 						Ozato Takumi
 					</div>
 				</router-link>
-				<p class="fav-icon">
-					<transition name="chip-fade">
-						<i class="mini material-icons red-text text-accent-3" @click="doFav">{{ isFavIcon }}</i>
-					</transition>
-				</p>
+				<small class="grey-text text-darken-3">2日前</small>
 			</div>
 		</transition>
 	`,
 	data: function(){
 		return {
 			isShow: false,
-			isFav: false
-		}
-	},
-	computed: {
-		isFavIcon: function(){
-			if (this.isFav) {
-				return 'favorite'
-			}else{
-				return 'favorite_border'
-			}
-		}
-	},
-	methods: {
-		doFav: function(){
-			this.isFav = !this.isFav
 		}
 	},
 	mounted: function(){
@@ -156,7 +137,7 @@ var photoGrid = {
 
 var indexPage = {
 	template: `
-		<div class="container">
+		<div>
 			<title-area></title-area>
 			<photo-grid :data="photoData"></photo-grid>
 		</div>
@@ -178,7 +159,7 @@ var iconWrapper = {
 	template: `
 		<transition name="icon-fade">
 			<div class="icon-wrapper" v-show="isShow">
-				<router-link to="/top" :class="'black-text'">
+				<router-link to="/" :class="'black-text'">
 					<i class="mini material-icons">arrow_back</i>
 				</router-link>
 			</div>
@@ -218,6 +199,11 @@ var detailContent = {
 	template: `
 		<transition name="content-fade">
 			<div class="detail-content col m6 s12" v-show="isShow">
+				<div class="fav-btn-wrapper">
+					<span><i class="mini material-icons" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>12件</span>
+					<span><i class="mini material-icons grey-text text-darken-3">comment</i>3件</span>
+					<i class="mini material-icons grey-text text-darken-3">share</i>
+				</div>
 				<h2 class="content-title">{{ data.title }}</h2>
 				<p>{{ data.content }}</p>
 			</div>
@@ -226,6 +212,28 @@ var detailContent = {
 	data: function(){
 		return {
 			isShow: false,
+			isFav: false
+		}
+	},
+	computed: {
+		isFavIcon: function(){
+			if (this.isFav) {
+				return 'favorite'
+			}else{
+				return 'favorite_border'
+			}
+		},
+		isFavClass: function(){
+			if (this.isFav) {
+				return 'red-text text-darken-1'
+			}else{
+				return 'grey-text text-darken-3'
+			}
+		},
+	},
+	methods: {
+		doFav: function(){
+			this.isFav = !this.isFav
 		}
 	},
 	mounted: function(){
@@ -235,7 +243,7 @@ var detailContent = {
 
 var detailPage = {
 	template: `
-		<div class="container">
+		<div>
 			<icon-wrapper></icon-wrapper>
 			<user-chip></user-chip>
 			<div class="row">
@@ -264,7 +272,7 @@ var detailPage = {
 
 var userPage = {
 	template: `
-		<div class="container">
+		<div>
 			<icon-wrapper></icon-wrapper>
 			<div class="profile-wrapper row">
 				<div class="col s12 m4">
@@ -276,7 +284,7 @@ var userPage = {
 						</div>
 						<div class="col s6 m12">
 							<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
-							<p class="fav-btn-wrapper">
+							<p class="follow-btn-wrapper">
 								<a class="waves-effect waves-light btn-small" :class="btnColor" @click="doFollow">{{ followText }}</a>
 							</p>
 						</div>
@@ -339,7 +347,7 @@ var userPage = {
 var router = new VueRouter({
 	routes: [
 		{
-			path: '/top',
+			path: '/',
 			component: indexPage
 		},
 		{
