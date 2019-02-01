@@ -23,49 +23,65 @@ var photoData = [
 		id: 0,
 		image: 'images/photo/0.jpg',
 		title: 'サンセットビーチ',
-		content: '結婚式の開場前、空いた時間に立ち寄った、北谷のサンセットビーチ。この時、まだ4月なのに焼けるような暑さだった。北谷という土地は沖縄の中でも比較的外国人が多く、とくにこのサンセットビーチは、日光浴や、サイクリングをしている外国人を毎日見かける。リラックスした空気が流れる居心地の良いビーチ。'
+		content: '結婚式の開場前、空いた時間に立ち寄った、北谷のサンセットビーチ。この時、まだ4月なのに焼けるような暑さだった。北谷という土地は沖縄の中でも比較的外国人が多く、とくにこのサンセットビーチは、日光浴や、サイクリングをしている外国人を毎日見かける。リラックスした空気が流れる居心地の良いビーチ。',
+		like: 12,
+		comments: ['いいね！','良い天気ですね']
 	},
 	{
 		id: 1,
 		image: 'images/photo/1.jpg',
 		title: '古宇利ビーチ',
-		content: '沖縄県北部にある、古宇利島のビーチ。沖縄本島から車で行けるビーチの中で一番綺麗だと思う。絵具を流し込んだかのようなエメラルドグリーンの海が目の前に広がる。'
+		content: '沖縄県北部にある、古宇利島のビーチ。沖縄本島から車で行けるビーチの中で一番綺麗だと思う。絵具を流し込んだかのようなエメラルドグリーンの海が目の前に広がる。',
+		like: 3,
+		comments: ['恋の島！']
 	},
 	{
 		id: 2,
 		image: 'images/photo/2.jpg',
 		title: 'ブセナの海中展望塔',
-		content: '海底から伸びている展望塔。塔に入って階段を降りると、窓から海中の様子を見ることができる。サンゴ礁や熱帯魚がたくさん泳いでいて、カクレクマノミを目の前で見ることもできる。'
+		content: '海底から伸びている展望塔。塔に入って階段を降りると、窓から海中の様子を見ることができる。サンゴ礁や熱帯魚がたくさん泳いでいて、カクレクマノミを目の前で見ることもできる。',
+		like: 4,
+		comments: ['かわいい','行ってみたい']
 	},
 	{
 		id: 3,
 		image: 'images/photo/3.jpg',
 		title: 'フクギ並木',
-		content: '台風や潮風から守ってくれる、フクギ。陽射しからも守ってくれて、涼しくて気持ちが良い。'
+		content: '台風や潮風から守ってくれる、フクギ。陽射しからも守ってくれて、涼しくて気持ちが良い。',
+		like: 124,
+		comments: ['おじーおばーの家のまわりこんな感じ','懐かしい気持ちになる']
 	},
 	{
 		id: 4,
 		image: 'images/photo/4.jpg',
 		title: '家から見える景色',
-		content: '線路が目の前にあって、朝から晩まで電車が走り続けているし、日当たりも良くないが、だんだん慣れてきて、今では結構好きな景色。天神祭の花火も見える。'
+		content: '線路が目の前にあって、朝から晩まで電車が走り続けているし、日当たりも良くないが、だんだん慣れてきて、今では結構好きな景色。天神祭の花火も見える。',
+		like: 24,
+		comments: ['良い天気ですね']
 	},
 	{
 		id: 5,
 		image: 'images/photo/5.jpg',
 		title: '中ノ島',
-		content: ''
+		content: '',
+		like: 5,
+		comments: ['いいところですよね']
 	},
 	{
 		id: 6,
 		image: 'images/photo/6.jpg',
 		title: '夜の大阪城',
-		content: '意味もなく大阪城の近くに住むことにこだわったのだが、本当に満足している。大きな公園があるので散歩するのにもちょうど良く、夏はキャンプ用のチェアーを置いて本を読んだり眠ったりしていた。夜はライトアップされてて綺麗だし、ランナーがたくさんいて賑やか。'
+		content: '意味もなく大阪城の近くに住むことにこだわったのだが、本当に満足している。大きな公園があるので散歩するのにもちょうど良く、夏はキャンプ用のチェアーを置いて本を読んだり眠ったりしていた。夜はライトアップされてて綺麗だし、ランナーがたくさんいて賑やか。',
+		like: 12,
+		comments: ['行ってみたい','外国人多いですよねぇ']
 	},
 	{
 		id: 7,
 		image: 'images/photo/7.jpg',
 		title: '駅のホームにいた鳥',
-		content: 'どこかの駅で電車を待っている時に現れた鳥。沖縄ではあまり見かけないけど、大阪ではやたらと見かける。なんだか上品で綺麗。'
+		content: 'どこかの駅で電車を待っている時に現れた鳥。沖縄ではあまり見かけないけど、大阪ではやたらと見かける。なんだか上品で綺麗。',
+		like: 34,
+		comments: ['かわいい']
 	},
 ]
 
@@ -160,7 +176,7 @@ var iconWrapper = {
 		<transition name="icon-fade">
 			<div class="icon-wrapper" v-show="isShow">
 				<router-link to="/" :class="'black-text'">
-					<i class="small material-icons">arrow_back</i>
+					<i class="small material-icons blue-grey-text text-darken-3">arrow_back</i>
 				</router-link>
 			</div>
 		</transition>
@@ -202,9 +218,18 @@ var detailContent = {
 				<h2 class="content-title">{{ data.title }}</h2>
 				<p>{{ data.content }}</p>
 				<div class="fav-btn-wrapper">
-					<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>12件</span>
-					<span><i class="small material-icons grey-text text-darken-3">comment</i>3件</span>
-					<i class="small material-icons grey-text text-darken-3">share</i>
+					<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
+					<span><i class="small material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
+					<i class="small material-icons blue-grey-text text-darken-3">bookmark_border</i>
+				</div>
+				<div class="comment-wrapper">
+					<div class="input-field comment-area">
+						<textarea id="textarea1" class="materialize-textarea"></textarea>
+						<label for="textarea1">コメントを入力する</label>
+					</div>
+					<div class="submit-area">
+						<button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">送信</button>
+					</div>
 				</div>
 			</div>
 		</transition>
@@ -227,13 +252,19 @@ var detailContent = {
 			if (this.isFav) {
 				return 'red-text text-darken-1 like-anime'
 			}else{
-				return 'grey-text text-darken-3'
+				return 'blue-grey-text text-darken-3'
 			}
 		},
 	},
 	methods: {
 		doFav: function(){
 			this.isFav = !this.isFav
+
+			if (this.isFav) {
+				this.data.like += 1
+			}else {
+				this.data.like -= 1
+			}
 		}
 	},
 	mounted: function(){
