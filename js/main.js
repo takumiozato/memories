@@ -114,7 +114,6 @@ var userChip = {
 						Ozato Takumi
 					</div>
 				</router-link>
-				<small class="grey-text text-darken-3 post-date-icon"><i class="mini material-icons grey-text text-darken-3">access_time</i>2日前</small>
 			</div>
 		</transition>
 	`,
@@ -295,7 +294,7 @@ var detailContent = {
 				<div class="comment-wrapper">
 					<div class="input-field comment-area">
 						<textarea id="textarea1" class="materialize-textarea"></textarea>
-						<label for="textarea1">コメントを入力する</label>
+						<label for="textarea1">コメント</label>
 					</div>
 					<div class="submit-area">
 						<button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">送信</button>
