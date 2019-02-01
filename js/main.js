@@ -98,7 +98,7 @@ var userChip = {
 						Ozato Takumi
 					</div>
 				</router-link>
-				<small class="grey-text text-darken-3">2日前</small>
+				<small class="grey-text text-darken-3 post-date-icon"><i class="mini material-icons grey-text text-darken-3">access_time</i>2日前</small>
 			</div>
 		</transition>
 	`,
@@ -160,7 +160,7 @@ var iconWrapper = {
 		<transition name="icon-fade">
 			<div class="icon-wrapper" v-show="isShow">
 				<router-link to="/" :class="'black-text'">
-					<i class="mini material-icons">arrow_back</i>
+					<i class="small material-icons">arrow_back</i>
 				</router-link>
 			</div>
 		</transition>
@@ -199,13 +199,13 @@ var detailContent = {
 	template: `
 		<transition name="content-fade">
 			<div class="detail-content col m6 s12" v-show="isShow">
-				<div class="fav-btn-wrapper">
-					<span><i class="mini material-icons" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>12件</span>
-					<span><i class="mini material-icons grey-text text-darken-3">comment</i>3件</span>
-					<i class="mini material-icons grey-text text-darken-3">share</i>
-				</div>
 				<h2 class="content-title">{{ data.title }}</h2>
 				<p>{{ data.content }}</p>
+				<div class="fav-btn-wrapper">
+					<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>12件</span>
+					<span><i class="small material-icons grey-text text-darken-3">comment</i>3件</span>
+					<i class="small material-icons grey-text text-darken-3">share</i>
+				</div>
 			</div>
 		</transition>
 	`,
@@ -225,7 +225,7 @@ var detailContent = {
 		},
 		isFavClass: function(){
 			if (this.isFav) {
-				return 'red-text text-darken-1'
+				return 'red-text text-darken-1 like-anime'
 			}else{
 				return 'grey-text text-darken-3'
 			}
