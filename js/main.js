@@ -175,15 +175,20 @@ var iconWrapper = {
 	template: `
 		<transition name="icon-fade">
 			<div class="icon-wrapper" v-show="isShow">
-				<router-link to="/" :class="'black-text'">
+				<a :class="'black-text'" @click="routerBack">
 					<i class="small material-icons blue-grey-text text-darken-3">arrow_back</i>
-				</router-link>
+				</a>
 			</div>
 		</transition>
 	`,
 	data: function(){
 		return {
 			isShow: false
+		}
+	},
+	methods: {
+		routerBack: function(){
+			router.go(-1)
 		}
 	},
 	mounted: function(){
@@ -348,7 +353,7 @@ var userPage = {
 						<transition name="image-scale">
 							<img src="images/user_icon.jpg" alt="ユーザー画像" class="user-image" v-show="isShow">
 						</transition>
-						<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
+						<p class="user-name">Ozato Takumi</p>
 					</div>
 					<div class="col s8 m12">
 						<p class="follow-btn-wrapper">
