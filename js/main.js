@@ -153,7 +153,7 @@ var photoGrid = {
 
 var indexPage = {
 	template: `
-		<div>
+		<div class="mm-container">
 			<title-area></title-area>
 			<photo-grid :data="photoData"></photo-grid>
 		</div>
@@ -195,7 +195,7 @@ var detailImage = {
 	props: ['data'],
 	template: `
 		<transition name="image-fade">
-			<div class="detail-image-wrapper col m6 s12" v-show="isShow">
+			<div class="detail-image-wrapper col m5 s12" v-show="isShow">
 				<img :src="data.image" alt="イメージ画像" class="detail-image z-depth-2">
 			</div>
 		</transition>
@@ -210,34 +210,20 @@ var detailImage = {
 	}
 }
 
-var detailContent = {
+var favButton = {
 	props: ['data'],
 	template: `
-		<transition name="content-fade">
-			<div class="detail-content col m6 s12" v-show="isShow">
-				<h2 class="content-title">{{ data.title }}</h2>
-				<p>{{ data.content }}</p>
-				<div class="fav-btn-wrapper">
-					<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
-					<span><i class="small material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
-					<i class="small material-icons blue-grey-text text-darken-3">bookmark_border</i>
-				</div>
-				<div class="comment-wrapper">
-					<div class="input-field comment-area">
-						<textarea id="textarea1" class="materialize-textarea"></textarea>
-						<label for="textarea1">コメントを入力する</label>
-					</div>
-					<div class="submit-area">
-						<button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">送信</button>
-					</div>
-				</div>
-			</div>
-		</transition>
+		<div class="fav-btn-wrapper">
+			<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
+			<span><i class="small material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
+			<i class="small material-icons" :class="isBookMarkClass" @click="doBookMark">{{ isBookMarkIcon }}</i>
+		</div>
 	`,
 	data: function(){
 		return {
 			isShow: false,
-			isFav: false
+			isFav: false,
+			isBookMark: false,
 		}
 	},
 	computed: {
@@ -255,6 +241,20 @@ var detailContent = {
 				return 'blue-grey-text text-darken-3'
 			}
 		},
+		isBookMarkIcon: function(){
+			if (this.isBookMark) {
+				return 'bookmark'
+			}else{
+				return 'bookmark_border'
+			}
+		},
+		isBookMarkClass: function(){
+			if (this.isBookMark) {
+				return 'yellow-text text-darken-3 like-anime'
+			}else{
+				return 'blue-grey-text text-darken-3'
+			}
+		},
 	},
 	methods: {
 		doFav: function(){
@@ -265,7 +265,44 @@ var detailContent = {
 			}else {
 				this.data.like -= 1
 			}
+		},
+		doBookMark: function(){
+			this.isBookMark = !this.isBookMark
+
+			if (this.isBookMark) {
+				M.toast({html: 'お気に入りに追加しました',classes: 'blue-grey darken-3', displayLength: '1500'})
+			}
 		}
+	},
+}
+
+var detailContent = {
+	props: ['data'],
+	template: `
+		<transition name="content-fade">
+			<div class="detail-content col m6 s12" v-show="isShow">
+				<h2 class="content-title">{{ data.title }}</h2>
+				<p>{{ data.content }}</p>
+				<fav-btn :data="data"></fav-btn>
+				<div class="comment-wrapper">
+					<div class="input-field comment-area">
+						<textarea id="textarea1" class="materialize-textarea"></textarea>
+						<label for="textarea1">コメントを入力する</label>
+					</div>
+					<div class="submit-area">
+						<button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">送信</button>
+					</div>
+				</div>
+			</div>
+		</transition>
+	`,
+	data: function(){
+		return {
+			isShow: false,
+		}
+	},
+	components: {
+		'fav-btn': favButton
 	},
 	mounted: function(){
 		this.isShow = true
@@ -274,7 +311,7 @@ var detailContent = {
 
 var detailPage = {
 	template: `
-		<div>
+		<div class="mm-container">
 			<icon-wrapper></icon-wrapper>
 			<user-chip></user-chip>
 			<div class="row">
@@ -303,33 +340,34 @@ var detailPage = {
 
 var userPage = {
 	template: `
-		<div>
+		<div class="mm-container">
 			<icon-wrapper></icon-wrapper>
-			<div class="profile-wrapper row">
-				<div class="col s12 m4">
-					<div class="row">
-						<div class="col s6 m12">
-							<transition name="image-scale">
-								<img src="images/user_icon.jpg" alt="ユーザー画像" class="user-image" v-show="isShow">
-							</transition>
-						</div>
-						<div class="col s6 m12">
-							<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
-							<p class="follow-btn-wrapper">
-								<a class="waves-effect waves-light btn-small" :class="btnColor" @click="doFollow">{{ followText }}</a>
-							</p>
-						</div>
+			<div class="profile-wrapper">
+				<div class="row">
+					<div class="col s4 m12">
+						<transition name="image-scale">
+							<img src="images/user_icon.jpg" alt="ユーザー画像" class="user-image" v-show="isShow">
+						</transition>
+						<p class="user-name teal-text text-darken-3">Ozato Takumi</p>
 					</div>
-				</div>
-				<div class="col s12 m8">
-					<div class="row">
-						<div class="col s6">
-							<small>Follower</small>
-							<p>5</p>
-						</div>
-						<div class="col s6">
-							<small>Posts</small>
-							<p>8</p>
+					<div class="col s8 m12">
+						<p class="follow-btn-wrapper">
+							<a class="waves-effect waves-light btn-small" :class="btnColor" @click="doFollow">{{ followText }}</a>
+						</p>
+						<p class="user-profile grey-text text-darken-2">
+							沖縄出身。大阪市内のWEB制作会社でプログラマーをしています。Vue.jsにハマって、WEB制作に活かそうと勉強中。休みの日は普通電車に乗ってあてもなく遠くに行きがち。本と音楽と猫が好き。
+						</p>
+					</div>
+					<div class="col s12">
+						<div class="row user-status">
+							<div class="col s6">
+								<p>フォロワー</p>
+								<p>5</p>
+							</div>
+							<div class="col s6">
+								<p>投稿</p>
+								<p>{{ photoData.length }}</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -352,9 +390,9 @@ var userPage = {
 	computed: {
 		followText: function(){
 			if (this.isFollow) {
-				return 'unfollow'
+				return 'フォロー解除'
 			}else{
-				return 'follow'
+				return 'フォロー'
 			}
 		},
 		btnColor: function(){
