@@ -196,12 +196,13 @@ var iconWrapper = {
 	}
 }
 
+// 投稿画像
 var detailImage = {
 	props: ['data'],
 	template: `
 		<transition name="image-fade">
 			<div class="detail-image-wrapper col m5 s12" v-show="isShow">
-				<img :src="data.image" alt="イメージ画像" class="detail-image z-depth-2">
+				<img :src="data.image" alt="投稿画像" class="detail-image z-depth-2">
 			</div>
 		</transition>
 	`,
@@ -215,6 +216,7 @@ var detailImage = {
 	}
 }
 
+// アクションボタン
 var favButton = {
 	props: ['data'],
 	template: `
@@ -281,6 +283,7 @@ var favButton = {
 	},
 }
 
+// 投稿のタイトル、テキスト
 var detailContent = {
 	props: ['data'],
 	template: `
@@ -314,6 +317,7 @@ var detailContent = {
 	}
 }
 
+// 詳細ページ
 var detailPage = {
 	template: `
 		<div class="mm-container">
@@ -343,27 +347,23 @@ var detailPage = {
 	}
 }
 
+// ユーザーページ
 var userPage = {
 	template: `
 		<div class="mm-container">
 			<icon-wrapper></icon-wrapper>
 			<div class="profile-wrapper">
 				<div class="row">
-					<div class="col s4 m12">
+					<div class="col s4 m4">
 						<transition name="image-scale">
 							<img src="images/user_icon.jpg" alt="ユーザー画像" class="user-image" v-show="isShow">
 						</transition>
 						<p class="user-name">Ozato Takumi</p>
 					</div>
-					<div class="col s8 m12">
+					<div class="col s8 m8">
 						<p class="follow-btn-wrapper">
 							<a class="waves-effect waves-light btn-small" :class="btnColor" @click="doFollow">{{ followText }}</a>
 						</p>
-						<p class="user-profile grey-text text-darken-2">
-							沖縄出身。大阪市内のWEB制作会社でプログラマーをしています。Vue.jsにハマって、WEB制作に活かそうと勉強中。休みの日は普通電車に乗ってあてもなく遠くに行きがち。本と音楽と猫が好き。
-						</p>
-					</div>
-					<div class="col s12">
 						<div class="row user-status">
 							<div class="col s6">
 								<p>フォロワー</p>
@@ -374,6 +374,11 @@ var userPage = {
 								<p>{{ photoData.length }}</p>
 							</div>
 						</div>
+					</div>
+					<div class="col s12 m12">
+						<p class="user-profile grey-text text-darken-2">
+							沖縄出身。大阪市内のWEB制作会社でプログラマーをしています。Vue.jsにハマって、WEB制作に活かそうと勉強中。休みの日は普通電車に乗ってあてもなく遠くに行きがち。本と音楽と猫が好き。
+						</p>
 					</div>
 				</div>
 			</div>
