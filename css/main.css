@@ -175,6 +175,13 @@
 	padding: 15px 0;
 }
 
+@media ( max-width:850px ){
+	.mm-container {
+		min-width: 700px;
+	}
+}
+
+
 @media ( max-width:468px ){
 	.photo-item {
 		width: 45%;
