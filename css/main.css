@@ -35,7 +35,7 @@
 }
 
 .chip {
-	font-family: 'Sawarabi Gothic', sans-serif;
+	/*font-family: 'Sawarabi Gothic', sans-serif;*/
 }
 
 #photo-grid {
@@ -63,8 +63,12 @@
 	align-items: center;
 }
 
+.icon-wrapper .material-icons {
+	cursor: pointer;
+}
+
 .detail-content {
-	font-family: 'Sawarabi Gothic', sans-serif;
+	/*font-family: 'Sawarabi Gothic', sans-serif;*/
 }
 
 .detail-content > p {
