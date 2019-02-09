@@ -291,15 +291,6 @@ var detailContent = {
 				<h2 class="content-title">{{ data.title }}</h2>
 				<p>{{ data.content }}</p>
 				<fav-btn :data="data"></fav-btn>
-				<div class="comment-wrapper">
-					<div class="input-field comment-area">
-						<textarea id="textarea1" class="materialize-textarea"></textarea>
-						<label for="textarea1">コメント</label>
-					</div>
-					<div class="submit-area">
-						<button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">送信</button>
-					</div>
-				</div>
 			</div>
 		</transition>
 	`,
@@ -316,6 +307,17 @@ var detailContent = {
 	}
 }
 
+var commentWrapper = {
+	props: ['data'],
+	template: `
+		<div class="comment-wrapper col m12 s12">
+			<div class="comment" v-for="comment in data.comments">
+				<p>{{ comment }}</p>
+			</div>
+		</div>
+	`
+}
+
 // 詳細ページ
 var detailPage = {
 	template: `
@@ -325,6 +327,7 @@ var detailPage = {
 			<div class="row">
 				<detail-image :data="photoData[paramsId]"></detail-image>
 				<detail-content :data="photoData[paramsId]"></detail-content>
+				<comment-wrapper :data="photoData[paramsId]"></comment-wrapper>
 			</div>
 		</div>
 	`,
@@ -343,6 +346,7 @@ var detailPage = {
 		'detail-image': detailImage,
 		'user-chip': userChip,
 		'detail-content': detailContent,
+		'comment-wrapper': commentWrapper,
 	}
 }
 
