@@ -220,9 +220,9 @@ var favButton = {
 	props: ['data'],
 	template: `
 		<div class="fav-btn-wrapper">
-			<span><i class="small material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
-			<span><i class="small material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
-			<i class="small material-icons" :class="isBookMarkClass" @click="doBookMark">{{ isBookMarkIcon }}</i>
+			<span><i class="mini material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
+			<span><i class="mini material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
+			<i class="mini material-icons" :class="isBookMarkClass" @click="doBookMark">{{ isBookMarkIcon }}</i>
 		</div>
 	`,
 	data: function(){
@@ -327,7 +327,6 @@ var detailPage = {
 			<div class="row">
 				<detail-image :data="photoData[paramsId]"></detail-image>
 				<detail-content :data="photoData[paramsId]"></detail-content>
-				<comment-wrapper :data="photoData[paramsId]"></comment-wrapper>
 			</div>
 		</div>
 	`,

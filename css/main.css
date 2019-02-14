@@ -1,3 +1,8 @@
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+	color: #595959;
+}
+
 .mm-container {
 	width: 70%;
 	min-width: 1000px;
@@ -15,7 +20,7 @@
 
 .title {
 	color: #00796b;
-	font-family: 'Sawarabi Gothic', sans-serif;
+	font-family: serif;
 	font-size: 2rem;
 	margin: 0;
 }
@@ -32,10 +37,6 @@
 	display: flex;
 	cursor: pointer;
 	user-select: none;
-}
-
-.chip {
-	/*font-family: 'Sawarabi Gothic', sans-serif;*/
 }
 
 #photo-grid {
@@ -67,10 +68,6 @@
 	cursor: pointer;
 }
 
-.detail-content {
-	/*font-family: 'Sawarabi Gothic', sans-serif;*/
-}
-
 .detail-content > p {
 	margin: 10px 0 0;
 }
@@ -81,7 +78,7 @@
 }
 
 .content-title {
-	font-size: 1.6rem;
+	font-size: 1.3rem;
 	color: #00796b;
 	margin: 10px 0 0;
 }
