@@ -63,7 +63,7 @@ var photoData = [
 		id: 5,
 		image: 'images/photo/5.jpg',
 		title: '中ノ島',
-		content: '',
+		content: '水の都、大阪。川が街中を流れていて、ここは堂島川と土佐堀川によって分断された中洲。大阪の歴史は詳しくはわからないけど、川に分断されて独立した島のようになっているこの中ノ島は、大阪城に近いこともあり、何かしら重要な拠点だったのではないかと想像している。今では大阪市役所、図書館、美術館、公園などがある。',
 		like: 5,
 		comments: ['いいところですよね']
 	},
@@ -71,7 +71,7 @@ var photoData = [
 		id: 6,
 		image: 'images/photo/6.jpg',
 		title: '夜の大阪城',
-		content: '意味もなく大阪城の近くに住むことにこだわったのだが、本当に満足している。大きな公園があるので散歩するのにもちょうど良く、夏はキャンプ用のチェアーを置いて本を読んだり眠ったりしていた。夜はライトアップされてて綺麗だし、ランナーがたくさんいて賑やか。',
+		content: '特に理由もなく大阪城の近くに住むことにこだわったのだけど、本当に満足している。大きな公園があるので散歩するのにもちょうど良く、夏はキャンプ用のチェアーを置いて本を読んだり眠ったり。夜はライトアップされてて綺麗だし、ランナーがたくさんいて賑やか。',
 		like: 12,
 		comments: ['行ってみたい','外国人多いですよねぇ']
 	},
@@ -82,6 +82,34 @@ var photoData = [
 		content: 'どこかの駅で電車を待っている時に現れた鳥。沖縄ではあまり見かけないけど、大阪ではやたらと見かける。なんだか上品で綺麗。',
 		like: 34,
 		comments: ['かわいい']
+	},
+	{
+		id: 8,
+		image: 'images/photo/8.jpg',
+		title: '人気のパスタ屋さん',
+		content: 'かなり人気なようで、いつも行列ができている。並ぶのが苦手な僕は、いつも遠くから見守るだけです。',
+		like: 23,
+	},
+	{
+		id: 9,
+		image: 'images/photo/9.jpg',
+		title: '大阪城公園',
+		content: '街中だけど木々が多くて居心地がイイ公園。大学生がワイワイとBBQをしているそばで寝転んでやりました。',
+		like: 34,
+	},
+	{
+		id: 10,
+		image: 'images/photo/10.jpg',
+		title: '大雪が降る前の鴨川',
+		content: '雪が降っているという情報を聞きつけて、ほとんど雪を見たことが無い僕は片道1時間かけて京都へ向かいました。駅に降り立つとこんな感じ。むしろ快晴。ガッカリしていたところ、このわずか10分後に信じられないくらい雪が降り始めた。',
+		like: 10,
+	},
+	{
+		id: 11,
+		image: 'images/photo/11.jpg',
+		title: '大雪が降る鴨川',
+		content: 'ほとんど雪を見たことが無い僕はこの光景を見て、大興奮でした。しかし、数分であまりの寒さに身の危険を感じ、さっさと帰りました。雪国に暮らす人すごい。',
+		like: 23,
 	},
 ]
 
@@ -221,7 +249,7 @@ var favButton = {
 	template: `
 		<div class="fav-btn-wrapper">
 			<span><i class="mini material-icons like-icon" :class="isFavClass" @click="doFav">{{ isFavIcon }}</i>{{ data.like }}件</span>
-			<span><i class="mini material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span>
+			<!-- <span><i class="mini material-icons blue-grey-text text-darken-3">chat_bubble_outline</i>{{ data.comments.length }}件</span> -->
 			<i class="mini material-icons" :class="isBookMarkClass" @click="doBookMark">{{ isBookMarkIcon }}</i>
 		</div>
 	`,
@@ -447,7 +475,7 @@ var vm = new Vue({
 	el: "#app",
 	router: router,
 	updated: function(){
-		this.magicGridListen();
+		setTimeout(this.magicGridListen(), 3000);
 	},
 	components: {
 		'title-area': titleArea,
