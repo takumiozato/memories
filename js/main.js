@@ -118,7 +118,7 @@ var titleArea = {
 	template: `
 		<transition name="title-fade">
 			<div class="icon-wrapper" v-show="isShow">
-				<h1 class="title">Memories</h1>
+				<h1 class="title">OneShot</h1>
 			</div>
 		</transition>
 	`,
